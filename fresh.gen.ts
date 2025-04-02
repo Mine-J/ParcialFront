@@ -18,9 +18,7 @@ const manifest = {
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
   },
-  islands: {
-    
-  },
+  islands: {},
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
