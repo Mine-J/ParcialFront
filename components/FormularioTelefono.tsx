@@ -6,24 +6,30 @@ export type data = {
 };
 
 export const FormularioTelefono: FunctionalComponent<data> = (props) => {
-    const datos = props.props
+  const datos = props.props;
+
   return (
     <div>
       <h2>Introduce el telefono con prefijo</h2>
       <form method="GET" action="/">
-              <input type="text" name="telefono" />
+        <input type="text" name="telefono" />
         <button type="submit">Aceptar</button>
-          </form>
-          {datos.is_valid ? 
-              <div>
-                  <p>Telefono: {datos.telefono}</p>
-                  <a href={`/country/${datos.pais}`}><p>Pais: {datos.pais}</p></a>
-            </div>
-          :
-              <div>
-                  <p>El telefono no es valido</p>
-            </div>
-          }
+      </form>
+      {datos.telefono !== "" && datos.is_valid &&
+        (
+          <div>
+            <p>Telefono: {datos.telefono}</p>
+            <a href={`/country/${datos.pais}`}>
+              <p>Pais: {datos.pais}</p>
+            </a>
+          </div>
+        )}
+      {datos.telefono !== "" && !datos.is_valid &&
+        (
+          <div>
+            <p>El numero de telefono no es valido</p>
+          </div>
+        )}
     </div>
   );
 };

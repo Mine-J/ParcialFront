@@ -6,8 +6,11 @@ export default function Layout({ Component }: PageProps) {
   // do something with state here
   return (
       <div class="layout">
-          <Header/>
-          <Component />
+      <Header />
+      <div class = "pagina">
+        <Component />
+      </div>
+          
           <Footer/>
     </div>
   );

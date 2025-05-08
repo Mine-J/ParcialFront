@@ -4,12 +4,12 @@ import { telefonoApi } from "../types.ts";
 import Axios from "npm:axios";
 
 export const handler: Handlers = {
-  async GET(req: Request, ctx: FreshContext<unknown, data>){
+  async GET(req: Request, ctx: FreshContext<unknown, data>) {
     const url = new URL(req.url);
     const telefono = url.searchParams.get("telefono") || "";
 
     if (telefono === null || telefono === "") {
-      ctx.render({ props: { is_valid: false, telefono: "", pais: "" } });
+      return ctx.render({ props: { is_valid: false, telefono: "", pais: "" } });
     } else {
       const api_Key = Deno.env.get("API_KEY");
       const responseTelefono = await Axios.get(
@@ -24,11 +24,11 @@ export const handler: Handlers = {
       };
       return ctx.render({ props: respuesta });
     }
-  }
+  },
 };
 
-const Page =(props: PageProps<data>) =>{
+const Page = (props: PageProps<data>) => {
   const datos = props.data.props;
   return <FormularioTelefono props={datos} />;
-}
+};
 export default Page;

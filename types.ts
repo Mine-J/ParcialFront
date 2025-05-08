@@ -4,6 +4,12 @@ export type telefonoApi = {
   pais: string;
 };
 export type paisApi = {
-    pais: string;
-    capital: string;
+  pais: string;
+  capital: string;
+};
+
+export type ciudadApi = {
+  pais: string;
+  ciudad: string;
+  temperatura: number;
 };
